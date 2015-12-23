@@ -25,7 +25,7 @@ module.exports = class Config
         async.each DEFAULT.detect, (file, done) =>
           @detect file: file, outputMessage: false, (exists) =>
             return done() unless exists
-            @bumped.logger.info MSG.DETECTED_FILE file if opts.outputMessage
+            @bumped.logger.success MSG.DETECTED_FILE file if opts.outputMessage
             @add file: file, done
         , next
     ]
@@ -39,7 +39,7 @@ module.exports = class Config
       return cb err if err
       return cb exists unless opts.outputMessage
       if exists
-        @bumped.logger.info MSG.DETECTED_FILE opts.file
+        @bumped.logger.success MSG.DETECTED_FILE opts.file
       else
         @bumped.logger.error MSG.NOT_DETECTED_FILE opts.file
       cb exists
@@ -137,7 +137,7 @@ module.exports = class Config
 
     async.each @bumped.config.rc.files, setProperty, (err) =>
       return @bumped.logger.errorHandler err, cb if err
-      @bumped.logger.success MSG.SET_PROPERTY opts.property if opts.outputMessage
+      @bumped.logger.success MSG.SET_PROPERTY opts.property, opts.value if opts.outputMessage
       cb null, opts
 
   hasFile: (file) ->

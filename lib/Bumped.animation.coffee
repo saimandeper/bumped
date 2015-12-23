@@ -1,36 +1,43 @@
 'use strict'
 
-logUpdate     = require 'log-update'
-eleganSpinner = require 'elegant-spinner'
-chalk         = require 'acho/node_modules/chalk'
+chalk   = require 'chalk'
+ms      = require 'pretty-ms'
+DEFAULT = require './Bumped.default'
+MSG     = require './Bumped.messages'
+
+TYPE_SHORTCUT =
+  prerelease: 'pre'
+  postrelease: 'post'
 
 module.exports = class Animation
 
   constructor: (params = {}) ->
-    @frame = eleganSpinner()
-    @interval = params.interval or 30
-
-    @logger = params.logger
-    @logLevel = params.logLevel
-
-    @text = params.text
+    @[param] = value for param, value of params
 
   start: (cb) ->
+    @start = new Date()
     @running = true
-    message = @logger[@logLevel] @text, 'raw'
-    color = @logger.types.line.color
 
-    @_intervalObject = setInterval =>
-      if @running
-        logUpdate("#{message} #{chalk[color](@frame())}")
-      else
-        logUpdate message
-        clearInterval @_intervalObject
-    , @interval
+    shortcut = TYPE_SHORTCUT[@type]
+    name = @plugin.replace /bumped-/, ''
+    @logger.keyword = "#{chalk.magenta(shortcut)} #{@logger.keyword}"
+    @logger.success "Starting '#{chalk.cyan(@text)}'..."
 
-    setTimeout cb, @interval
+    cb()
 
-  stop: (cb) =>
+  stop: (err, cb) ->
     @running = false
-    process.stdin.write '\n'
-    setTimeout cb, @interval
+    unless err
+      end = ms new Date() - @start
+      @logger.success "Finished '#{chalk.cyan(@text)}' after #{chalk.magenta(end)}."
+      process.stdout.write '\n' unless @isLast and @isPostRelease
+
+    @logger.keyword = DEFAULT.logger.keyword
+    cb err
+
+  @end: (opts) ->
+    if opts.outputMessage
+      diff = ms(new Date() - opts.start)
+      message = "#{MSG.CREATED_VERSION(opts.version)} after #{chalk.magenta(diff)}."
+      opts.logger.success message
+      process.stdout.write '\n'

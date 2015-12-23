@@ -2,15 +2,20 @@
   "name": "bumped",
   "description": "Makes easy release software.",
   "homepage": "https://github.com/bumped/bumped",
-  "version": "0.5.1",
+  "version": "0.5.6",
   "main": "./bin/index.js",
-  "bin": "./bin/index.js",
+  "bin": {
+    "bumped": "./bin/index.js"
+  },
   "author": {
-    "email": "josefrancisco.verdu@gmail.com",
     "name": "Kiko Beats",
+    "email": "josefrancisco.verdu@gmail.com",
     "url": "https://github.com/Kikobeats"
   },
-  "repository": "bumped/bumped",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bumped/bumped.git"
+  },
   "bugs": {
     "url": "https://github.com/bumped/bumped/issues"
   },
@@ -25,16 +30,17 @@
     "acho": "latest",
     "args-js": "latest",
     "async": "latest",
+    "chalk": "latest",
     "coffee-script": "latest",
     "dot-prop": "latest",
-    "elegant-spinner": "latest",
+    "existential-assign": "latest",
     "exists-file": "latest",
     "fn-partial": "latest",
     "force-resolve": "latest",
     "fs-extra": "latest",
-    "log-update": "latest",
+    "lodash.clonedeep": "latest",
     "meow": "latest",
-    "object-assign": "latest",
+    "pretty-ms": "latest",
     "rc": "latest",
     "season": "latest",
     "semver": "latest",
@@ -53,5 +59,7 @@
     "pretest": "mv .bumpedrc .bumpedrc_backup",
     "test": "sh test/test.sh"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "readme": "ERROR: No README data found!",
+  "_id": "bumped@0.5.5"
 }

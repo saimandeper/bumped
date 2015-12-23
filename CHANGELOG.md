@@ -1,7 +1,64 @@
+<a name="0.5.6"></a>
+## 0.5.6 (2015-12-05)
+
+
+* removed coveralls ([f6a04af](https://github.com/bumped/bumped/commit/f6a04af))
+* Update .travis.yml ([6570e57](https://github.com/bumped/bumped/commit/6570e57))
+* updated Acho interface ([4720ce6](https://github.com/bumped/bumped/commit/4720ce6))
+* updated devDependencies version ([2a26711](https://github.com/bumped/bumped/commit/2a26711))
+* updated travis node builds ([10b1660](https://github.com/bumped/bumped/commit/10b1660))
+
+
+
+<a name="0.5.5"></a>
+## 0.5.5 (2015-11-03)
+
+
+### chore
+
+* chore(package): update coffee-coverage to version 0.7.0 ([3a44890](https://github.com/bumped/bumped/commit/3a44890))
+
+* 0.5.5 releases ([35440ba](https://github.com/bumped/bumped/commit/35440ba))
+* fixed missing space ([22256cf](https://github.com/bumped/bumped/commit/22256cf))
+* improve line breaks in the output ([a03fa0f](https://github.com/bumped/bumped/commit/a03fa0f))
+* integrates with coveralls ([39fb1cb](https://github.com/bumped/bumped/commit/39fb1cb))
+* little style change ([5da22ef](https://github.com/bumped/bumped/commit/5da22ef))
+* Merge pull request #4 from bumped/greenkeeper-coffee-coverage-0.7.0 ([c1600ca](https://github.com/bumped/bumped/commit/c1600ca))
+* updated settings ([ae8658a](https://github.com/bumped/bumped/commit/ae8658a))
+
+
+
+<a name="0.5.4"></a>
+## 0.5.4 (2015-10-17)
+
+
+* 0.5.3 releases ([57926e8](https://github.com/bumped/bumped/commit/57926e8))
+* 0.5.4 releases ([b76a3d0](https://github.com/bumped/bumped/commit/b76a3d0))
+* avoiding innecessary information ([dd6c2d0](https://github.com/bumped/bumped/commit/dd6c2d0))
+* little UI changes ([e7fcf12](https://github.com/bumped/bumped/commit/e7fcf12))
+
+
+
+<a name="0.5.2"></a>
+## 0.5.2 (2015-10-16)
+
+
+* 0.5.2 releases ([97a50dc](https://github.com/bumped/bumped/commit/97a50dc))
+* better grammar ([85dee69](https://github.com/bumped/bumped/commit/85dee69))
+* new log approach. renamed 'plugins' into 'plugin' ([bde4e8e](https://github.com/bumped/bumped/commit/bde4e8e))
+* new log skin ([8600578](https://github.com/bumped/bumped/commit/8600578))
+* output time ([bccb6f1](https://github.com/bumped/bumped/commit/bccb6f1))
+* UI consistency ([f525656](https://github.com/bumped/bumped/commit/f525656))
+* Update README.md ([5e39e46](https://github.com/bumped/bumped/commit/5e39e46))
+* using your own chalk dependency ([f14fd81](https://github.com/bumped/bumped/commit/f14fd81))
+
+
+
 <a name="0.5.1"></a>
 ## 0.5.1 (2015-10-12)
 
 
+* 0.5.1 releases ([04c58b3](https://github.com/bumped/bumped/commit/04c58b3))
 * added finepack plugin ([96cd5a3](https://github.com/bumped/bumped/commit/96cd5a3))
 * bye black style, welcome white ([b03e946](https://github.com/bumped/bumped/commit/b03e946))
 * notifications for new plugins versions available ([e7fa304](https://github.com/bumped/bumped/commit/e7fa304))

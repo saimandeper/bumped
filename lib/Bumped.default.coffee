@@ -1,7 +1,8 @@
 'use strict'
 
+chalk        = require 'chalk'
 Args         = require 'args-js'
-objectAssign = require 'object-assign'
+existsAssign = require 'existential-assign'
 
 module.exports =
 
@@ -20,8 +21,14 @@ module.exports =
       outputMessage: true
     }
 
-  loggerTypes: ->
-    return {
+  logger:
+    outputType: (type, diff = '') -> "#{@keyword} "
+    color: true
+    align: false
+    diff: false
+    keyword: 'bumped'
+    level: 'plugin'
+    types:
       line:
         color: 'white'
       error:
@@ -45,11 +52,10 @@ module.exports =
       plugin:
         level : 6
         color : 'magenta'
-    }
 
   args: ->
     args = Args([
       { opts :  Args.OBJECT   | Args.Optional, _default:  this.defaulOptions() }
       { cb   :  Args.FUNCTION | Args.Required                                  }
     ], arguments[0])
-    return [objectAssign(this.defaulOptions(), args.opts), args.cb]
+    return [existsAssign(this.defaulOptions(), args.opts), args.cb]

@@ -1,32 +1,17 @@
 'use strict'
 
 Acho         = require 'acho'
-objectAssign = require 'object-assign'
+chalk        = require 'chalk'
 DEFAULT      = require './Bumped.default'
-chalk        = require 'acho/node_modules/chalk'
-
-# A new logger level method
-loggerOutput = (color) ->
-  (message) -> @transport chalk[color] message
-
-# Extending native generateTypeMessage
-generateTypeMessage = (type) ->
-  (message, rawMode = false) ->
-    if rawMode
-      @generateMessage type, message
-    else
-      @transport @generateMessage type, message
-      this
-
-# Extending with error handler
-Acho::errorHandler = (err, cb) ->
-  @error err
-  cb err
+existsAssign = require 'existential-assign'
 
 module.exports = (opts) ->
-  opts = objectAssign {types: DEFAULT.loggerTypes()}, opts
-  opts.generateTypeMessage = generateTypeMessage
+  opts = existsAssign DEFAULT.logger, opts
+  logger = Acho opts
 
-  logger = new Acho opts
-  logger.output = loggerOutput logger.types.line.color
+  # Extending with error handler
+  logger.errorHandler = (err, cb) ->
+    @error err
+    cb err
+
   logger
